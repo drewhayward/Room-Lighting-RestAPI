@@ -4,6 +4,7 @@ from lightController import LightController as LightCtrl
 # Sets a flask instance equal to 'app'
 app = Flask(__name__)
 
+# Redefine escape characters so jinja doesn't overwrite angular syntax
 jinja_options = app.jinja_options.copy()
 
 jinja_options.update(dict(
@@ -17,8 +18,7 @@ jinja_options.update(dict(
 app.jinja_options = jinja_options
 
 
-#LightCtrl = LightCtrl()
-a = 5
+LightCtrl = LightCtrl()
 
 # Imports 'views' from a package 'app'
 from app import views
