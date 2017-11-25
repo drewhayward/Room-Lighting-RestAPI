@@ -1,4 +1,5 @@
 from flask import Flask
+from lightController import LightController as LightCtrl
 
 # Sets a flask instance equal to 'app'
 app = Flask(__name__)
@@ -16,6 +17,8 @@ jinja_options.update(dict(
 app.jinja_options = jinja_options
 
 
+#LightCtrl = LightCtrl()
+a = 5
 
 # Imports 'views' from a package 'app'
 from app import views
