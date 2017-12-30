@@ -25,7 +25,7 @@ def setLight():
     print(request.json.get('state'))
     return make_response('',200)
 
-@app.route('/api/state', methods=['GET'])
+@app.route('/api/state/', methods=['GET'])
 def get_state():
 
     return make_response('',200)
