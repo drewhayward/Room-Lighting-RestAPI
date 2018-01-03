@@ -18,10 +18,10 @@ jinja_options.update(dict(
 app.jinja_options = jinja_options
 
 
-#LightCtrl = LightCtrl()
+LightCtrl = LightCtrl()
 
 # Imports 'views' from a package 'app'
-from app import views
+# from app import views
 
 # Import the RESTapi functionality
 from app import restapi
