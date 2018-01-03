@@ -7,9 +7,9 @@ Use virtualenv to install Python 2 as /flask/
 
     python -m virtualenv flask
 
-Then install pyserial and flask
+Then install pyserial, flask and flask-cors
 
-    pip install flask pyserial
+    pip install flask pyserial flask-cors
 
 #/api/ Endpoints
 

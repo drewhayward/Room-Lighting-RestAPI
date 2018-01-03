@@ -1,4 +1,5 @@
 #!flask/bin/python
 from app import app
-# TODO Turn off debug when testing with real Serial
-app.run(debug=True)
+# to debug locally:
+#app.run()
+app.run(host="0.0.0.0", port=8080)

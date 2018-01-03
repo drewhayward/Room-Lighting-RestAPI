@@ -1,8 +1,10 @@
 from flask import Flask
+from flask_cors import CORS
 from lightController import LightController as LightCtrl
 
 # Sets a flask instance equal to 'app'
 app = Flask(__name__)
+CORS(app)
 
 # Redefine escape characters so jinja doesn't overwrite angular syntax
 jinja_options = app.jinja_options.copy()

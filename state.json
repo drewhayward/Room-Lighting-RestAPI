@@ -2,7 +2,7 @@
     "lights": {
         "christmas": 1, 
         "desk": 1, 
-        "standing": 0
+        "standing": 1
     }, 
     "strips": {
         "bed": "ffffff", 

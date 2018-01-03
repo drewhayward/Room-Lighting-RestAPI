@@ -32,10 +32,12 @@ def checkToken(check):
 @app.route('/api/token/', methods=['GET'])
 def getToken():
     if 'password' not in request.headers:
-        about(400)
+        print("'password' field not found in header")
+        abort(400)
 
     if request.headers['password'] == "Lightsablazing":
         token = binascii.hexlify(os.urandom(10))
+        print("Password accepted. Issuing token: " + str(token))
         tokens.append((token,time.time()))
         return make_response(jsonify({'token': token}),200)
     else:
@@ -46,12 +48,14 @@ def getToken():
 def stripColor():
     # Authorization check
     if 'token' not in request.headers:
+        print("No token found")
         abort(400)
     if not checkToken(request.headers['token']):
         return make_response('Invalid token', 401)
 
     # Parameter check
     if not request.json or not 'color' in request.json or not 'strip' in request.json:
+        print("Color and Strip parameters not found")
         abort(400)
 
     strip = request.json.get('strip')
@@ -59,8 +63,10 @@ def stripColor():
 
     # Parameter validity check
     if colorFormat.match(color) is None:
+        print("Invalid Color")
         abort(400)
     if strip not in LightCtrl.stripmap.keys():
+        print("Invalid Light Key")
         abort(400)
 
     LightCtrl.setStripColor(strip, color)
@@ -72,12 +78,15 @@ def stripColor():
 def setLight():
     # Authorization check
     if 'token' not in request.headers:
+        print("Token not found")
         abort(400)
     if not checkToken(request.headers['token']):
+        print("Invalid Token")
         return make_response('Invalid token', 401)
 
     # Parameter check
     if not request.json or not 'light' in request.json or not 'state' in request.json:
+        print("Parameter not present")
         abort(400)
 
     light = request.json.get('light')
